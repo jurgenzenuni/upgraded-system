@@ -24,5 +24,3 @@ urlpatterns = [
      path('delete_favorite_image/', views.delete_favorite_image, name='delete_favorite_image'),
     path('generate-image/', views.generate_image, name='generate_image'),
 ]
-urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
-urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
