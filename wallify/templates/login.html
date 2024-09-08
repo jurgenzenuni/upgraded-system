@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'home.css' %}">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Lobster&family=Pacifico&family=Poppins:wght@500&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 85vh;
+            margin: 0;
+            /* background-image: url(../images/blackhbg2.jpg); */
+            background-color: whitesmoke;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            font-size: 20px;
+        }
+
+        form {
+            margin-top: 40px;
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+            /* margin-top: 200px; */
+            display: flex;
+            flex-direction: column;
+            /* justify-content: center !important;  */
+            align-items: center;
+        }
+
+        .logo {
+            position: absolute;
+            top: 1px;
+            left: 1px;
+            margin-top: -9px;
+            margin-left: -14px;
+        }
+
+        .logo img {
+            width: 100px;
+            /* Adjust the width as needed */
+            height: auto;
+            /* Maintain aspect ratio */
+        }
+
+        @media (max-width: 720px) {
+            .formlogin {
+                max-width: 400px;
+            }
+        }
+
+        .title2 {
+            color: #000000;
+            font-size: 55px;
+            font-family: 'Lobster', sans-serif;
+            margin-bottom: 80px;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 18px;
+            font-size: 16px;
+            border-radius: 3px;
+            border: none;
+            background-color: #e6e6e6;
+            color: #000000;
+            margin-bottom: 0px;
+            margin-top: -15px;
+            box-sizing: border-box;
+        }
+
+        .buttonlogin {
+            width: 100%;
+            padding: 13px;
+            background-color: #55bcc9;
+            color: #fff;
+            border-radius: 3px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: -12px;
+        }
+
+        .buttonlogin:hover {
+            background-color: #000000;
+            transition: 0.2s;
+        }
+
+        .fyp {
+            font-size: 12px;
+            margin: +30px;
+            color: #777676;
+        }
+
+        .fyp:hover {
+            color: #000000;
+        }
+
+        .fyp2 {
+            font-size: 12px;
+            margin: 50px 0;
+            color: #777676;
+            display: flex;
+        }
+
+        .fyp2 span {
+            margin-right: 40px;
+        }
+
+        .signup-btn {
+            text-decoration: none;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            /* background-color: #55bcc9; */
+            background-color: white;
+            border-color: #55bcc9;
+            /* color: #fff; */
+            color: #55bcc9;
+            border-radius: 3px;
+            /* border: none; */
+            cursor: pointer;
+            font-size: 14px;
+            margin-left: +10px;
+            margin: -7px;
+            border-style: solid;
+            border-width: 2.2px;
+        }
+
+        .signup-btn:hover {
+            background-color: #55bcc9;
+            color: white;
+            transition: 0.2s;
+        }
+        
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo logomargins">
+            <a href="{% url 'homepage' %}">
+                <img src="/static/images/wlogo4.png" alt="Logo">
+            </a>
+        </div>
+    </header>
+
+    <!-- <h2>Login</h2> {{ msg }} -->
+    <form class="formlogin" method="post">
+        <h2 class="title2">Login</h2> {{ msg }}
+        {% csrf_token %}
+        <!-- {{ form.as_p }} -->
+        <label for="username"></label>
+		<input type="text" id="username" name="username" required placeholder="Enter Username"><br><br>
+
+		<label for="password"></label>
+		<input type="password" id="password" name="password" required placeholder="Enter Password"><br><br>
+
+        <button type="submit" class="buttonlogin">Login</button>
+
+        <p class="fyp2">
+            <span class="fyp2-text">Don't have an account?</span>
+            <a href="{% url 'signup' %}" class="signup-btn">Sign up</a>
+        </p>
+    </form>
+
+</body>
+
+</html>

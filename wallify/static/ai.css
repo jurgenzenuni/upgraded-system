@@ -1,0 +1,170 @@
+.navbar {
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  .navbar-brand {
+      color: #000000 !important;
+  }
+  .nav-link {
+    color: #444444c5 !important;
+  }
+  .nav-link:hover {
+      color: black !important;
+  }
+  .navbar .navbar-nav .nav-link.active {
+    color: rgb(0, 0, 0) !important;
+  }
+  @media (min-width: 991px) {
+    .nav-link::before {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 3px;
+      background-color: black;
+      visibility: hidden;
+      transition: 0.3s ease-in-out;
+    }
+
+    .nav-link:hover::before,
+    .nav-link.active::before {
+      width: 100%;
+      visibility: visible;
+    }
+  }
+  .login-button {
+    background-color: #000000;
+    color: white;
+  }
+  .login-button:hover {
+    background-color: #55bcc9;
+  }
+  .nav-link.nav-link.active {
+    color: rgba(0, 0, 0, 0.774);
+    font-weight: 500;
+    position: relative;
+  }
+    .offcanvas-end {
+      right: 0;
+      left: auto;
+    }
+    .nav-links {
+      text-align: center;
+    }
+    .navbar-toggler-icon {
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30"><line x1="3" y1="6" x2="27" y2="6" stroke="black" stroke-width="3"/><line x1="3" y1="14" x2="27" y2="14" stroke="black" stroke-width="3"/><line x1="3" y1="22" x2="27" y2="22" stroke="black" stroke-width="3"/></svg>') !important;
+    }
+    .navbar-toggler {
+      border: none !important;
+      background: none !important;
+      cursor: pointer !important;
+    }
+
+    .navbar-toggler:focus,
+    .btn-close:focus {
+      box-shadow: none !important;
+      outline: none !important;
+      border: none !important;
+    }
+    .navbar-expand-lg .offcanvas.show .nav-link {
+      justify-content: center;
+      text-align: center;
+      color: rgba(0, 0, 0, 0.774) !important;
+    }
+    .navbar-expand-lg .offcanvas.show .nav-link.active {
+      color: rgb(255, 255, 255) !important;
+      background-color: #000000;
+      border-radius: 40px;
+    }
+    .ai-text {
+      background-color: #000000;
+      color: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+      margin-top: 100px;
+      padding: 10px;
+    }
+    .ai-container {
+        width: 100%;
+        max-width: 600px;
+        padding: 20px;
+        text-align: center;
+        margin: 0 auto; /* Center content horizontally */
+    }
+    .input-rounded {
+        padding: 10px;
+        border: 2px solid #ccc;
+        border-radius: 25px;
+        width: 100%;
+        max-width: 400px;
+        margin-bottom: 10px;
+    }
+    
+    .button-rounded {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 25px;
+        background-color: #000000;
+        color: white;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+    
+    .button-rounded:hover {
+        background-color: #55bcc9;
+    }
+    .image-gallery {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .generated-image {
+        display: block;
+        width: 100%;
+        height: auto;
+        border-radius: 15px;
+        margin-bottom: 15px;
+    }
+    
+    .download-button {
+        position: absolute;
+        bottom: 10px; /* Adjust this to position the button at the bottom of the image */
+        right: 10px; /* Adjust this to position the button at the right of the image */
+        background-color: #000000;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 15px;
+        cursor: pointer;
+        font-size: 14px;
+        z-index: 10;
+        margin-bottom: 15px;
+    }
+
+    .download-button:hover {
+        background-color: #55bcc9;
+    }
+    .image-container {
+        position: relative;
+        display: inline-block;
+    }
+    .loading-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        /* background: rgba(255, 255, 255, 0.8); */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+        display: none; /* Hidden by default */
+      }
+
+      .loading-gif {
+        width: 100px;
+        height: 80px;
+      }

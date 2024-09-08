@@ -1,0 +1,215 @@
+body {
+  /* font-family: "Work Sans", sans-serif !important; */
+  font-family: "JetBrains Mono", monospace !important;
+}
+.navbar {
+    background-color: whitesmoke;
+    height: 80px;
+}
+.navbar-brand {
+  font-family: 'Pacifico', cursive;
+  color: white !important;
+  font-weight: 500;
+  font-size: 24px;
+  transition: 0.3s color;
+}
+.login-button {
+  background-color: white;
+  color: black;
+  font-size: 14px;
+  padding: 8px 20px;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: 0.4s ease-in-out;
+}
+.login-button:hover {
+  background-color: #55bcc9;
+  color: white;
+}
+.navbar-toggler {
+  border: none;
+  font-size: 1.25rem;
+}
+.navbar-toggler:focus, .btn-close:focus  {
+    box-shadow: none;
+    outline: none;
+}
+.nav-link {
+  color: rgba(223, 223, 223, 0.61) !important;
+  font-weight: 500;
+  position: relative;
+}
+.nav-link:hover, .nav-link.active {
+  color: rgb(255, 255, 255) !important;
+  transition: 0.3s ease-in-out;
+}
+@media (min-width: 991px) {
+  .nav-link::before {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 3px;
+      background-color: white;
+      visibility: hidden;
+      transition: 0.3s ease-in-out;
+  }
+  .nav-link:hover::before, .nav-link.active::before {
+      width: 100%;
+      visibility: visible;
+  }
+}
+.navbar-toggler-icon {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30"><line x1="3" y1="6" x2="27" y2="6" stroke="white" stroke-width="3"/><line x1="3" y1="14" x2="27" y2="14" stroke="white" stroke-width="3"/><line x1="3" y1="22" x2="27" y2="22" stroke="white" stroke-width="3"/></svg>') !important;
+}
+.navbar-toggler {
+  border: none !important;
+  background: none !important;
+  cursor: pointer !important;
+}
+
+.navbar-toggler:focus,
+.btn-close:focus {
+  box-shadow: none !important;
+  outline: none !important;
+  border: none !important;
+}
+.navbar-expand-lg .offcanvas.show .nav-link {
+  justify-content: center;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.774) !important;
+}
+.navbar-expand-lg .offcanvas.show .nav-link.active {
+  color: rgb(255, 255, 255) !important;
+  background-color: #000000;
+  border-radius: 40px;
+}
+.navbar-expand-lg .offcanvas.show .nav-link:hover {
+  color: black;
+  font-weight: bold;
+}
+.pfp-btn {
+  height: 35px;
+  width: 35px;
+  clip-path: circle(50%);
+  object-fit: cover; /* Ensure the image fits well */
+  display: block; /* Remove any extra space */
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.pfp-btn:hover {
+  transform: scale(1.1); /* Scale the image up by 10% */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a subtle drop shadow */
+}
+
+.footer-color{
+  background-color:#131313 ;
+  width: 100% !important;
+}
+.footer-color a {
+  color: white; /* Set text color to white */
+  text-decoration: none; /* Remove underline */
+}
+.viewbutton:hover {
+  background-color: #55bcc9;
+}
+.carousel {
+    height: 700px; /* Adjust height as needed */
+  }
+  
+  .carousel-image {
+    object-fit: cover; /* Make the images cover the entire carousel */
+    height: 700px; /* Ensure images cover the entire carousel */
+  }
+  
+  .carousel-item::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Adjust opacity as needed */
+  }
+  .cslbutton {
+    background-color: #000000;
+    font-size: 16px;
+    color: rgb(255, 255, 255);
+    border-radius: 4px;
+    padding: 12px;
+    text-decoration: none;
+    font-weight: 600;
+    outline: none;
+  }
+  .cslbutton:hover {
+    font-weight: 600;
+    background-color: #55bcc9;
+    transition: 0.3s;
+  }
+
+/* Featurettes */
+.featurette-divider {
+    margin: 3rem 0; 
+  }
+  
+  .featurette-heading {
+    font-weight: 300;
+    line-height: 1;
+    letter-spacing: -.05rem;
+  }
+  
+  /* RESPONSIVE CSS
+  -------------------------------------------------- */
+  
+  @media (min-width: 40em) {
+    /* Bump up size of carousel content */
+    .carousel-caption p {
+      margin-bottom: 1.25rem;
+      font-size: 1.25rem;
+      line-height: 1.4;
+    }
+  
+    .featurette-heading {
+      font-size: 50px;
+    }
+  }
+  
+  @media (min-width: 62em) {
+    .featurette-heading {
+      margin-top: 7rem;
+    }
+  }
+  
+  .fixed-background {
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 500px;
+    background-position: center;
+    background-size: cover;
+  }
+  .viewbutton {
+    background-color: #000000;
+    color: white;
+    border-radius: 4px;
+    padding: 10px;
+    text-decoration: none;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+  }
+  .viewbutton:hover {
+    background-color: #55bcc9;
+    transition: 0.3s;
+  }
+  .logo {
+    height: 60px;
+    width: 60px;
+    margin-right: -12px;
+    margin-bottom: -80px;
+    margin-top: -80px;
+  }
+  .logomargins {
+    margin-left: -17px;
+  }

@@ -1,0 +1,133 @@
+body {
+  background-image: url("/static/images/cardimg6.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  margin: 0;
+  color: white;
+  font-family: "Work Sans", sans-serif;
+  min-height: 100vh;
+}
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.header {
+  text-align: center;
+  padding-top: 50px;
+}
+
+.subheading {
+  font-size: 60px;
+  margin-top: -50px;
+  font-weight: 600px;
+  text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.9);
+  font-family: "MuseoModerno", sans-serif;
+  color: white;
+  /* font-family: 'Pacifico', cursive; */
+}
+
+.about {
+  font-size: 22px;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.5);
+  /* background-color: white; */
+  margin-top: 50px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+  border-radius: 18px;
+  color: white;
+}
+
+.about h2 {
+  font-size: 36px;
+  text-align: center;
+  border-bottom: 2px solid white;
+}
+
+.about p {
+  line-height: 1.5;
+}
+
+.call-to-action {
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 30px;
+}
+
+.call-to-action a {
+background-color: #fff; /* Your original background color */
+padding: 10px 20px;
+border-radius: 5px;
+text-decoration: none;
+color: #000;            /* Your original text color */
+font-weight: bold;
+transition: background-color 0.3s ease; /* Add a transition */
+}
+.call-to-action a:hover {
+background-color: black; /* Black background on hover */
+color: #fff; 
+}
+.btn-docs {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 15px;
+}
+
+.btn-docs a {
+background-color: #fff; /* Your original background color */
+padding: 10px 20px;
+border-radius: 5px;
+text-decoration: none;
+color: #000;            /* Your original text color */
+font-weight: bold;
+transition: background-color 0.3s ease; /* Add a transition */
+}
+.btn-docs a:hover {
+background-color: black; /* Black background on hover */
+color: #fff;
+transition: 0.3s;
+}
+.mission { 
+font-size: 22px;
+padding: 50px 20px;
+background-color: rgba(0, 0, 0, 0.5); 
+/* background-color: white; */
+margin-top: 50px;
+box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+border-radius: 18px;
+color: white;
+}
+.mission h2 {
+font-size: 36px;
+text-align: center;
+border-bottom: 2px solid white;
+}
+.journey { 
+font-size: 22px;
+padding: 50px 20px;
+background-color: rgba(0, 0, 0, 0.5); 
+margin-top: 50px;
+}
+
+.journey h2 {
+font-size: 36px;
+text-align: center;
+border-bottom: 2px solid white;
+}
+.navbar {
+background-color: rgba(255, 255, 255, 0);
+}
+@media (max-width: 991px) {
+.about, .mission {
+font-size: 15px;
+}
+.about h2, .mission h2 {
+font-size: 24px;
+}
+.subheading {
+font-size: 44px;
+}
+}

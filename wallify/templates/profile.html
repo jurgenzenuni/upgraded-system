@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'home.css' %}">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=MuseoModerno:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+    rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Carter+One&family=Oleo+Script+Swash+Caps&family=Pacifico&display=swap"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
+    rel="stylesheet">
+  <style>
+    .navbar {
+      background-color: rgb(255, 255, 255);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    /* .navbar .nav-links {
+      margin-right: 100px !important;
+    } */
+
+    .navbar-brand {
+      color: #000000 !important;
+    }
+
+    .nav-link {
+      color: #444444c5 !important;
+    }
+
+    .nav-link:hover {
+      color: black !important;
+    }
+
+    .navbar .navbar-nav .nav-link.active {
+      color: rgb(0, 0, 0) !important;
+    }
+
+    @media (min-width: 991px) {
+      .navbar .nav-link::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0;
+        height: 3px;
+        background-color: black;
+        visibility: hidden;
+        transition: 0.3s ease-in-out;
+      }
+
+      .navbar .nav-link:hover::before,
+      .navbar .nav-link.active::before {
+        width: 100%;
+        visibility: visible;
+      }
+    }
+
+    .login-button {
+      background-color: #000000;
+      color: white;
+    }
+
+    .login-button:hover {
+      background-color: #55bcc9;
+    }
+
+    .nav-link.nav-link.active {
+      color: rgba(0, 0, 0, 0.774);
+      font-weight: 500;
+      position: relative;
+    }
+
+    .offcanvas-end {
+      right: 0;
+      left: auto;
+    }
+
+    .nav-links {
+      text-align: center;
+    }
+
+    .navbar-toggler-icon {
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30"><line x1="3" y1="6" x2="27" y2="6" stroke="black" stroke-width="3"/><line x1="3" y1="14" x2="27" y2="14" stroke="black" stroke-width="3"/><line x1="3" y1="22" x2="27" y2="22" stroke="black" stroke-width="3"/></svg>') !important;
+    }
+
+    .navbar-toggler {
+      border: none !important;
+      background: none !important;
+      cursor: pointer !important;
+    }
+
+    .navbar-toggler:focus,
+    .btn-close:focus {
+      box-shadow: none !important;
+      outline: none !important;
+      border: none !important;
+    }
+
+    .navbar-expand-lg .offcanvas.show .nav-link {
+      justify-content: center;
+      text-align: center;
+      color: rgba(0, 0, 0, 0.774) !important;
+    }
+
+    /* old navbar styles, new one with bottom navbar should use profile.css */
+    .overcover {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .tab-content {
+      justify-content: center;
+      text-align: center;
+    }
+
+    .nav-tabs .nav-link.active {
+      border-radius: 40px;
+      background-color: #131313;
+      /* Set your desired background color */
+      color: white !important;
+      /* Set text color */
+      margin-bottom: 5px;
+      text-align: center;
+      /* Center the text horizontally */
+      padding: 15px;
+      /* Remove default padding */
+    }
+
+    .nav-tabs .nav-link:hover {
+      border-radius: 40px;
+      background-color: #131313;
+      /* Set your desired background color */
+      color: white !important;
+      /* Set text color */
+      text-align: center;
+      /* Center the text horizontally */
+      padding: 15px;
+      /* Remove default padding */
+      transition: 0.5S ease-in-out;
+    }
+
+    .nav-tabs .nav-link {
+      border-radius: 40px;
+      background-color: white;
+      /* Set your desired background color */
+      color: black;
+      /* Set text color */
+      margin-bottom: 5px;
+      text-align: center;
+      /* Center the text horizontally */
+      padding: 15px;
+      /* Remove default padding */
+      margin-right: 5px;
+    }
+
+    @media (min-width: 991px) {
+      .nav-tabs .nav-link::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0;
+        height: 3px;
+        background-color: white;
+        visibility: hidden;
+        transition: 0.3s ease-in-out;
+      }
+
+      .nav-tabs .nav-link:hover::before {
+        display: none !important;
+      }
+    }
+
+    .profile-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 40px;
+    }
+
+    .pfp {
+      position: relative;
+      border-radius: 50%;
+      box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+      margin-bottom: 10px;
+    }
+
+    .pfp img {
+      height: 200px;
+      width: 200px;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    .edit-button {
+      border-radius: 50%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: rgba(0, 0, 0, 0.3);
+      color: white;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .pfp:hover .edit-button {
+      opacity: 1;
+      cursor: pointer;
+    }
+
+    .username {
+      font-size: 60px;
+      font-family: "MuseoModerno", sans-serif;
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    @media only screen and (max-width: 600px) {
+      .username {
+        font-size: 45px;
+      }
+    }
+
+    .bodyclass {
+      display: flex;
+      justify-content: center;
+    }
+
+    @media (min-width: 300px) {
+      .grid {
+        columns: 1;
+        gap: 1px;
+      }
+
+      .grid img {
+        max-width: 100%;
+
+        /* padding-top: 12px !important; */
+      }
+    }
+
+    @media (min-width: 600px) {
+      .grid {
+        columns: 2;
+        gap: 1px;
+      }
+
+      .grid img {
+        max-width: 100%;
+        /* padding-top: 12px !important; */
+      }
+    }
+
+    @media (min-width:900px) {
+      .grid {
+        columns: 3;
+        gap: 1px;
+      }
+
+      /* .grid img {
+                padding-top: 20px !important;
+                } */
+    }
+
+    .grid {
+      justify-content: center;
+      max-width: 3000px;
+    }
+
+    .grid img {
+      width: 600px;
+    }
+    .image-container:hover .download-button {
+            display: block;
+        }
+
+        .image-container:hover .delete-button {
+            display: block;
+        }
+
+        .image-container {
+            max-width: 1800px;
+            position: relative;
+            display: inline-block;
+            margin: 2px;
+            overlay: hidden;
+        }
+
+        .image-container img {
+            
+            width: 100%;
+        }
+
+        .image-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            box-shadow: inset 0 0 20px 10px rgba(0, 0, 0, 0.3);
+            z-index: 1;
+            /* transition: opacity 0.3s ease;  */
+            opacity: 0;
+        }
+
+
+        .image-container:hover::before {
+            opacity: 1;
+        }
+
+        .image-container:hover .image-username {
+            display: block;
+            /* Show the username when hovering over the image */
+        }
+        .download-button {
+            display: none;
+            position: absolute;
+            bottom: 5px;
+            right: 58px;
+            /* Adjusted left position */
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 3px;
+            text-decoration: none;
+            z-index: 2;
+        }
+
+        .download-button:hover {
+            background-color: rgba(0, 0, 0, 0.7);
+            transition: 0.3s ease-in-out;
+        }
+        .download-button img {
+            height: 30px;
+            width: 30px;
+        }
+        .delete-button {
+            display: none;
+            position: absolute;
+            bottom: 5px;
+            right: 5px;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 3px;
+            z-index: 2;
+        }
+
+        .delete-button:hover {
+            background-color: rgba(0, 0, 0, 0.7);
+            transition: 0.3s ease-in-out;
+        }
+        .delete-button img {
+            height: 30px;
+            width: 30px;
+        }
+        .image-container:hover .download-button2 {
+            display: block;
+        }
+        .download-button2 {
+            display: none;
+            position: absolute;
+            bottom: 5px;
+            right: 5px;
+            /* Adjusted left position */
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 3px;
+            text-decoration: none;
+            z-index: 2;
+        }
+
+        .download-button2:hover {
+            background-color: rgba(0, 0, 0, 0.7);
+            transition: 0.3s ease-in-out;
+        }
+        .download-button2 img {
+            height: 30px;
+            width: 30px;
+        }
+  </style>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+      <a href="{% url 'homepage' %}" class="logomargins">
+        <img src="/static/images/wlogo4.png" alt="Logo" style="height: 100px; width: 100px;" class="logo">
+      </a>
+      <a class="navbar-brand me-auto wallify-brand" href="{% url 'homepage' %}">Wallify</a>
+      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+        <div class="offcanvas-header">
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <ul class="navbar-nav nav-links justify-content-center flex-grow-1 pe-3">
+            <li class="nav-item">
+              <a class="nav-link mx-lg-2" aria-current="page" href="{% url 'homepage' %}">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link mx-lg-2" href="{% url 'about' %}">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link mx-lg-2" href="{% url 'generate_image' %}">Image Generation</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link mx-lg-2 " href="{% url 'gallery' %}">Gallery</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      {% if logged_in_username %}
+      <div class="dropdown d-inline-block user-button">
+        <img src="{{ profile_picture_url }}" class="pfp-btn dropdown-toggle" id="dropdownMenuButton"
+          data-bs-toggle="dropdown" aria-expanded="false">
+        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
+          <li><a class="dropdown-item" href="{% url 'profile' %}">View Profile</a></li>
+          <li><a class="dropdown-item" href="{% url 'signout' %}">Logout</a></li>
+        </ul>
+      </div>
+      {% else %}
+      <a href="{% url 'signin' %}" class="login-button"> Login </a>
+      {% endif %}
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+        aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="container profile-box">
+    <div class="top-cover">
+      <div class="covwe-inn">
+        <div class="profile-section">
+          {% if username %}
+            {% if pfp_url %}
+              <div class="pfp">
+                <img src="{{ pfp_url }}" alt="Profile Picture">
+                <!-- Only show the edit button if the logged-in user is viewing their own profile -->
+                {% if logged_in_username == username %}
+                  <div class="edit-button" data-bs-toggle="modal" data-bs-target="#editProfilePictureModal">
+                    <img src="/static/images/camera2.png" style="width: 50px; height: 50px;">
+                  </div>
+                {% endif %}
+              </div>
+            {% else %}
+              <p>No profile picture available.</p>
+            {% endif %}
+            <div class="username">{{ username }}</div>
+          {% endif %}
+        </div> <!-- profile-section -->
+      </div>
+    </div>
+  
+    <!-- Modal structure for editing profile picture -->
+    <div class="modal fade" id="editProfilePictureModal" tabindex="-1" aria-labelledby="editProfilePictureModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="editProfilePictureModalLabel">Edit Profile Picture</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form action="{% url 'profile' %}" method="post" enctype="multipart/form-data">
+              {% csrf_token %}
+              <div class="mb-3">
+                <label for="newProfilePicture" class="form-label">Select new profile picture:</label>
+                <input type="file" class="form-control" id="newProfilePicture" name="newProfilePicture" required>
+              </div>
+              <button type="submit" class="btn cslbutton">Upload</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <ul class="nav nav-tabs custom-nav-tabs" id="myTab" role="tablist" style="margin-left:5px; margin-top:10px;">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link tab-item active" id="reviews-tab" data-bs-toggle="tab" data-bs-target="#reviews" type="button" role="tab" aria-controls="reviews" aria-selected="false">Uploads</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link tab-item " id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Favorites</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link tab-item" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Share</button>
+      </li>
+    </ul>
+    
+    <div class="tab-content" id="myTabContent">
+      <div class="tab-pane fade " id="home" role="tabpanel" aria-labelledby="home-tab">
+        <div class="bodyclass">
+          <div class="grid">
+            {% if favorite_images %}
+              {% for image in favorite_images %}
+                <div class="image-container">
+                  <img src="{{ image.url }}" alt="Favorite Image">
+                  <div class="download-button">
+                    <a href="#" onclick="fetchAndDownload('{{ image.url }}'); return false;">
+                        <img src="{% static 'images/download.png' %}" alt="Download" class="icon">
+                    </a>
+                  </div>
+                  <!-- Only show the delete button if the logged-in user is viewing their own profile -->
+                  {% if logged_in_username == username %}
+                    <div class="delete-button">
+                      <img src="{% static 'images/delete.png' %}" alt="Delete" class="icon" onclick="deleteImage('{{ image.key }}', this)">
+                    </div>
+                  {% endif %}
+                </div>
+              {% endfor %}
+            {% else %}
+              <p>No favorites found.</p>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+      
+      <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+        <!-- Only show the upload form if the logged-in user is viewing their own profile -->
+        {% if logged_in_username == username %}
+          <form method="POST" enctype="multipart/form-data" action="{% url 'upload_image' %}">
+            {% csrf_token %}
+            <label style="margin-top: 15px; margin-bottom: 15px;" for="image">Choose an image:</label>
+            <input type="file" id="image" name="image" accept="image/*" required><br><br>
+            <label for="description">Enter Keywords(comma separated):</label>
+            <input type="text" id="description" name="description" required><br><br>
+            <button class="cslbutton" type="submit">Upload</button>
+          </form>
+          {% else %}
+          <p> Not Authorized </p>
+        {% endif %}
+      </div>
+      
+      <div class="tab-pane fade active show" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
+        <div class="bodyclass">
+          <div class="grid">
+            {% if uploaded_images %}
+              {% for image in uploaded_images %}
+                <div class="image-container">
+                  <img src="{{ image.url }}" alt="Uploaded Image">
+                  <div class="download-button2">
+                    <a href="#" onclick="fetchAndDownload('{{ image.url }}'); return false;">
+                      <img src="{% static 'images/download.png' %}" alt="Download" class="icon">
+                    </a>
+                  </div>
+                  <!-- Only show the delete button if the logged-in user is viewing their own profile -->
+                  <!-- {% if logged_in_username == username %}
+                    <div class="delete-button">
+                      <img src="{% static 'images/delete.png' %}" alt="Delete" class="icon" onclick="deleteImage('{{ image.key }}', this)">
+                    </div>
+                  {% endif %} -->
+                </div>
+              {% endfor %}
+            {% else %}
+              <p>No uploaded images found. Contribute some images in the 'Share' tab and they will appear here!</p>
+            {% endif %}
+          </div>
+        </div>
+  </div>
+
+    <script>
+      function openTab(evt, tabName) {
+        // Declare all variables
+        var i, tabcontent, tablinks;
+
+        // Get all elements with class="tabcontent" and hide them
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+          tabcontent[i].style.display = "none";
+          tabcontent[i].classList.remove("active");
+        }
+
+        // Get all elements with class="tablinks" and remove the class "active"
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+          tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+
+        // Show the current tab, and add an "active" class to the button that opened the tab
+        document.getElementById(tabName).style.display = "block";
+        evt.currentTarget.className += " active";
+      }
+
+      // Display the default active tab content
+      document.addEventListener("DOMContentLoaded", function () {
+        var defaultTab = document.querySelector(".tabcontent.active");
+        if (defaultTab) {
+          defaultTab.style.display = "block";
+        }
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"></script>
+
+</body>
+<script>
+  function fetchAndDownload(imageUrl) {
+    fetch(imageUrl, {
+        method: 'GET',
+        headers: { 'Cache-Control': 'no-cache' }
+    })
+    .then(response => {
+        if (response.ok) {
+            return response.blob();
+        } else {
+            throw new Error('Network response was not ok.');
+        }
+    })
+    .then(blob => {
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = imageUrl.split('/').pop(); // Extract the filename from the URL
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+    })
+    .catch(error => {
+        console.error('There was a problem with the fetch operation:', error);
+    });
+}
+function deleteImage(imageKey, imageElement) {
+    fetch("{% url 'delete_favorite_image' %}", {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'X-CSRFToken': '{{ csrf_token }}'
+        },
+        body: new URLSearchParams({
+            'image_key': imageKey
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            // Remove the specific image container associated with the deleted image
+            imageElement.closest('.image-container').remove();
+        } else {
+            alert('Failed to delete image: ' + (data.error || 'Unknown error'));
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('An error occurred while deleting the image.');
+    });
+}
+</script>
+</html>
