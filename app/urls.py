@@ -4,6 +4,8 @@ from django.urls import path
 from wallify.views import homepage
 from wallify.views import about
 from wallify import views
+from django.conf.urls.static import static
+from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
