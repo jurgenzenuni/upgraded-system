@@ -208,7 +208,7 @@ def gallery(request):
     conditions = []
     query_params = []
     for keyword in keywords:
-        conditions.append("description LIKE %s")
+        conditions.append("description ILIKE %s")
         query_params.append('%' + keyword + '%')
 
     # Update SQL query to include username
